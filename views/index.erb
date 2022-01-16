@@ -1,0 +1,19 @@
+Messages: 
+
+<%= if flash[:notice] then flash[:notice] end %></div>
+<ul>
+  <% @messages.each do |message| %>
+    <% p @messages %>
+    <li class="message" id="message-<%= message.id %>">  
+        Message: <%= message.message %>   
+        posted by User:    <%= message.ch_user %>   
+        time: <%= message.created_at.strftime('%H:%M %d %b %y') %>
+    </li>
+<% end %>
+<p>
+<form method="post" action="/create">
+  <input type="text" name="message" placeholder="MESSAGE" />
+  <input type="text" name="ch_user" placeholder="USER" />
+  <input type="submit" value="Submit" />
+</form>
+
